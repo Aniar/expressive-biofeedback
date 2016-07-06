@@ -184,6 +184,72 @@ audio {
     margin-top: 160px;
 }
 
+/*********** EDA SENSOR GRAPH ***********/
+
+#eda-graph-container {
+    margin-top: 100px;
+    padding: 10px;
+    color: #eee;
+}
+
+#eda-graph-container ul {
+    list-style-type: none;
+    margin-left: -20px;
+}
+
+#eda-graph-container li {
+    cursor: pointer;
+}
+
+#eda-graph {
+    display: inline-block;
+}
+
+.eda-graph-labels {
+    display: none;
+    vertical-align: top;
+}
+
+#eda-graph-description {
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+    margin-left: 15px;
+}
+
+/*********** BVP SENSOR GRAPH ***********/
+
+#bvp-graph-container {
+    margin-top: 100px;
+    padding: 10px;
+    color: #eee;
+}
+
+#bvp-graph-container ul {
+    list-style-type: none;
+    margin-left: -20px;
+}
+
+#bvp-graph-container li {
+    cursor: pointer;
+}
+
+#bvp-graph {
+    display: inline-block;
+}
+
+.bvp-graph-labels {
+    display: none;
+    vertical-align: top;
+}
+
+#bvp-graph-description {
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+    margin-left: 15px;
+}
+
 /*********** COLORS ***********/
 /*
  * pale blue: rgba(128, 201, 232, 1) or #80C9E8
