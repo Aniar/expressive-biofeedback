@@ -40,12 +40,12 @@ function disconnectFromMuse() {
     });
 }
 
+var e4_index = 0;
 function connectToE4() {
     //start index to get current index when we access heart rate in the text file
-    i = 0;
     ibiarr = [];
     setInterval(function(){
-        i++;
+        e4_index++;
     }, 1000);
     $.get("text/ibiData.txt", function(data) {
       	ibiarr = data.split(",");
@@ -55,8 +55,8 @@ function connectToE4() {
     }
 }
 
-function geti(){
-	return i;
+function gete4index(){
+	return e4_index;
 }
 
 function recordDataWithAudio() {
