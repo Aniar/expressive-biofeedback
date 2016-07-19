@@ -39,6 +39,7 @@ $('#next-start').click(function() {
     study_started = true;
     startQuestionRecordingHRV();
     startQuestionRecordingEEG();
+    startQuestionRecordingEDA();
     var minutes = 60 * question_list[0]['time'], display = $('#time');
     startTimer(minutes, display);
 })
@@ -467,7 +468,19 @@ function startQuestionRecordingEEG() {
 }
 
 function startQuestionRecordingEDA() {
-    // TODO RAINA: fill in with eda recording
+    var indexGsr = 0;
+   	var gsrarr = [];
+    setInterval(function(){
+        if (study_started) {
+            // get current data in text file and update array every second
+            $.get("text/gsrData.txt", function(data) {
+                gsrarr = data.split(",");
+            }).done(function() {
+                question_eda.push(gsrarr[indexGsr]);
+                indexGsr++;
+            });
+        }
+    }, 500);
 }
 
 /********* SUBMISSION **********/
