@@ -132,6 +132,14 @@ function createGraph() {
     return smoothie;
 }
 
+function clearGraphData() {
+    deltaline.data = [];
+    thetaline.data = [];
+    alphaline.data = [];
+    betaline.data = [];
+    gammaline.data = [];
+}
+
 function addData(data, line, dataarr) {
     line.append(new Date().getTime(), data);
     dataarr.push(data);
