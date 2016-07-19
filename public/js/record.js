@@ -7,8 +7,8 @@ function connectToMuse() {
 
     socket.on('muse_connected', function() {
         // TODO: update record for all viz
-        startGraphing();
-        startSwirl();
+        // startGraphing();
+        // startSwirl();
         $('#muse-status').css('display', 'inline-block');
         $('#connect-message').text('Connected! Now recording.');
     });
@@ -36,6 +36,25 @@ function disconnectFromMuse() {
         $('#musestatus').text('Muse has been disconnected. Outputting csv files.');
         $('#headbandstatus').css('display', 'none');
     });
+}
+
+var e4_index = 0;
+function connectToE4() {
+    //start index to get current index when we access heart rate in the text file
+    ibiarr = [];
+    setInterval(function(){
+        e4_index++;
+    }, 1000);
+    $.get("text/ibiData.txt", function(data) {
+      	ibiarr = data.split(",");
+    });
+    if(ibiarr[0] !== null){
+    	$('#connect-message-E4').text('E4 Connected!');
+    }
+}
+
+function gete4index(){
+	return e4_index;
 }
 
 function recordDataWithAudio() {
