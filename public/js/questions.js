@@ -1,28 +1,37 @@
 var question_list = [
     {'question': 'This is a baseline test. Please clear your mind and do not make any sudden movements so that we can record your baseline physiological activity.',
-     'time': .5,
-     'timedisplay': '00:30'
-    },
-    {'question': 'Please write out all the uses of a paper clip on the paper provided.',
-     'time': 2,
-     'timedisplay': '02:00'
+     'time': 1,
+     'timedisplay': '01:00'
     },
     {'question': 'Please close your eyes and listen to this audio clip. You may open your eyes when the audio stops playing. You will automatically be moved to the next question afterwards.',
      'time': 2,
      'timedisplay': '02:00'
     },
-    {'question': 'Please write out your answer to the following question on the paper provided: What is the greatest accomplishment of your life?',
+    {'question': 'Please share a vivid emotional memory and write out your answer in the word document provided.',
      'time': 2,
      'timedisplay': '02:00'
     },
-    {'question': 'Please write out your answer to the following question on the paper provided: Tell me about a time when you’ve hurt someone else\'s feelings.',
+    {'question': 'Please write out all the uses of a paper clip in the word document provided.',
      'time': 2,
      'timedisplay': '02:00'
     },
-    {'question': 'Please write out your answer to the following question on the paper provided: What would you do in the event of a zombie apocalypse?',
+    {'question': 'Please write out your answer to the following question in the word document provided: What is the greatest accomplishment of your life?',
+     'time': 2,
+     'timedisplay': '02:00'
+    },
+    {'question': 'Please write out your answer to the following question in the word document provided: Tell me about a time when you’ve hurt someone else\'s feelings.',
+     'time': 2,
+     'timedisplay': '02:00'
+    },
+    {'question': 'Please write out your answer to the following question in the word document provided: What would you do in the event of a zombie apocalypse?',
+     'time': 2,
+     'timedisplay': '02:00'
+    },
+    {'question': 'Please write out your answer to the following question in the word document provided: If you were given a day off on a short notice, what would you do?',
      'time': 2,
      'timedisplay': '02:00'
     }
+    
 ];
 
 /********* START STUDY QUESTIONS **********/
@@ -60,11 +69,11 @@ function nextQuestion() {
         question_list[current]['eda'] = answer_hrv['eda'];
         current += 1;
         // ALL QUESTIONS ANSWERED move on
-        if (current == 2) {
+        if (current == 1) {
             $('#audio-player').css('display', 'block');
             document.getElementById('music').play();
         }
-        if (current == 3) {
+        if (current == 2) {
             $('#audio-player').css('display', 'none');
         }
         if (current >= question_list.length) {
@@ -476,11 +485,12 @@ function startQuestionRecordingEDA() {
             $.get("text/gsrData.txt", function(data) {
                 gsrarr = data.split(",");
             }).done(function() {
-                question_eda.push(gsrarr[indexGsr]);
+                question_eda.push(gsrarr[indexGsr].trim());
                 indexGsr++;
+                console.log(gsrarr[indexGsr]);
             });
         }
-    }, 500);
+    }, 1000);
 }
 
 /********* SUBMISSION **********/
